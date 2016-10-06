@@ -48,12 +48,13 @@ public class Main extends Application {
                     }
                 }
                 started = !started;
-
+                GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+                int height = gd.getDisplayMode().getHeight();
+                int width = gd.getDisplayMode().getWidth();
                 while (started) {
                     robot.keyPress(KeyEvent.VK_W);
-                    robot.keyPress(KeyEvent.VK_D);
+                    robot.mouseMove(width * 3 / 4, height / 2);
                     robot.delay(100);
-                    robot.keyRelease(KeyEvent.VK_D);
                     robot.keyRelease(KeyEvent.VK_W);
                 }
 //                robot.keyRelease(KeyEvent.VK_D);
